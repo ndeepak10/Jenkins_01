@@ -1,0 +1,26 @@
+Step 1: login to Jenkins_server
+        update : sudo apt -y update
+Step 2: install java 21
+        sudo apt install -y openjdk-21-jdk
+step 3: install jenkins on ubantu EC2 instance
+        sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+        https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+        echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
+        https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+        /etc/apt/sources.list.d/jenkins.list > /dev/null
+        sudo apt-get update
+        sudo apt-get install -y jenkins
+step 4: start Jenkins service ---> sudo systemctl start jenkins
+        stop Jenkins service ----> sudo systemctl stop jenkins
+        check current status Jenkins service ---> sudo systemctl status jenkins
+        edit current Jenkins service settings ---> sudo systemctl edit jenkins
+step 5: Jenkins by default runs on 8080 port, open 8080 port to access 
+             Goto -> EC2 -> jenkins_instance -> Security (Tab) 
+                 *Edit inbound rules
+                 *Add inbound rule for 8080
+                 *Access the jenkins with url <jenkins_ec2_public_ip_address>:<port> from any browser
+step 6: open a url in browser and use public ip for access the jenkins server and 
+        Run the below command in jenins EC2 machine         
+       sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+        copy the password into any notepad application and copy only the password to jenkins
+        
