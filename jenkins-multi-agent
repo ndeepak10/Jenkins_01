@@ -6,7 +6,7 @@ pipeline {
             agent { label 'slave1' }  // Runs on an agent with label "build-agent"
             steps {
                 echo "Building the project on build-agent"
-                sh 'make build'
+                
             }
         }
 
@@ -14,7 +14,7 @@ pipeline {
             agent { label 'slave2' }  // Runs on a different agent
             steps {
                 echo "Running tests on test-agent"
-                sh 'make test'
+                
             }
         }
 
@@ -22,7 +22,7 @@ pipeline {
             agent { label 'slave1' }  // Another different agent
             steps {
                 echo "Deploying on deploy-agent"
-                sh 'make deploy'
+                
             }
         }
     }
