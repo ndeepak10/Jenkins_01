@@ -19,7 +19,7 @@ pipeline {
         }
 
         stage('Deploy') {
-            agent { label 'Built-In Node' }  // Another different agent
+            agent { label 'slave1' }  // Another different agent
             steps {
                 echo "Deploying on deploy-agent"
                 sh 'make deploy'
