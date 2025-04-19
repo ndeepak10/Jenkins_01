@@ -22,7 +22,7 @@ pipeline{
         stage('Build') {
             steps {
                script{
-                 echo "GROOVY---------> APP_TYPE: $APP TARGET_ENV: $ENV"
+                 echo "GROOVY---------> APP_TYPE: $(env.APP) TARGET_ENV: $(env.ENV)"
                }
             }
         }
