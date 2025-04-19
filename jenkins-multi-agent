@@ -6,7 +6,7 @@ pipeline {
             agent { label 'slave1' }  // Runs on an agent with label "build-agent"
             steps {
                 echo "Building the project on build-agent"
-                
+                sleep 5
             }
         }
 
@@ -14,15 +14,15 @@ pipeline {
             agent { label 'slave2' }  // Runs on a different agent
             steps {
                 echo "Running tests on test-agent"
-                
+                sleep 5
             }
         }
 
         stage('Deploy') {
-            agent { label 'slave1' }  // Another different agent
+            agent { label 'Built-In Node' }  // Another different agent
             steps {
                 echo "Deploying on deploy-agent"
-                
+                sleep 5
             }
         }
     }
