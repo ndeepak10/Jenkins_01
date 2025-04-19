@@ -1,0 +1,29 @@
+pipeline {
+    agent none  // Declare that no global agent will be used
+
+    stages {
+        stage('Build') {
+            agent { label 'slave1' }  // Runs on an agent with label "build-agent"
+            steps {
+                echo "Building the project on build-agent"
+                sh 'make build'
+            }
+        }
+
+        stage('Test') {
+            agent { label 'slave2' }  // Runs on a different agent
+            steps {
+                echo "Running tests on test-agent"
+                sh 'make test'
+            }
+        }
+
+        stage('Deploy') {
+            agent { label 'Built-In Node' }  // Another different agent
+            steps {
+                echo "Deploying on deploy-agent"
+                sh 'make deploy'
+            }
+        }
+    }
+}
