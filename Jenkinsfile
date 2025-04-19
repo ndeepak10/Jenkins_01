@@ -6,5 +6,10 @@ pipeline{
                 echo "This is my first pipeline job"
             }
         }
+    stages {
+        stage('Build') {
+            steps {
+                bat 'set'
+            }
     }
 }
