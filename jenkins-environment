@@ -1,0 +1,32 @@
+pipeline{
+    agent any
+
+    environment {
+        APP = 'frontend'
+        ENV = 'prod'
+    }
+    stages{
+        stage('CHECK'){
+            steps{
+                sh 'env'
+            }
+        }
+        stage('CHECKOUT'){
+            steps{
+                echo "GROOVY---------> APP_TYPE: $APP TARGET_ENV: $ENV"
+                sh '''
+                    echo "SHELL---------> APP_TYPE: $APP TARGET_ENV: $ENV"
+                '''
+            }
+        }
+        stage('Build') {
+            steps {
+               sh 'echo "Hello World"'
+                sh '''
+                    echo "Multiline shell steps works too"
+                    ls 
+                '''
+            }
+        }
+    }
+}
