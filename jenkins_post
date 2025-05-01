@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+    
+    stages {
+        // All the required stages 
+        ............
+    }
+    
+    post {
+        always {
+            // Actions to be performed always (whether the pipeline succeeds or fails)
+            echo 'Pipeline finished. Performing cleanup tasks...'
+            cleanWs() // Example: Cleanup workspace
+           
+            // Send notifications, archive artifacts, etc.
+        }
+        
+        success {
+            // Actions to be performed if the pipeline succeeds
+            echo 'Pipeline succeeded! Sending success notifications...'
+        }
+        
+        failure {
+            // Actions to be performed if the pipeline fails
+            echo 'Pipeline failed! Sending failure notifications...'
+        }
+        
+        unstable {
+            // Actions to be performed if the pipeline is unstable
+            echo 'Pipeline is unstable! Taking necessary actions...'
+        }
+        
+        changed {
+            // Actions to be performed if the pipeline status changed
+            echo 'Pipeline status changed! Executing appropriate actions...'
+        }
+    }
+}
