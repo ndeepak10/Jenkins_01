@@ -12,8 +12,8 @@ pipeline {
             steps {
                 checkout([$class: 'GitSCM',
                             branches: [[name: 'main']],
-                            userRemoteConfigs: [[url: 'https://github.com/jaintpharsha/k8s-ip-app.git',
-                                                credentialsId: 'github_id']]])
+                            userRemoteConfigs: [[url: 'https://github.com/ndeepak10/Jenkins_01.git',
+                                                credentialsId: 'deepak']]])
             }
         }
 
@@ -40,8 +40,8 @@ pipeline {
         stage('CHECKOUT2') {
             steps {
                 git branch: 'main',
-                    credentialsId: 'github_id',
-                    url: 'https://github.com/jaintpharsha/maven.git'
+                    credentialsId: 'deepak',
+                    url: 'https://github.com/ndeepak10/Jenkins_01.git'
             }
         }
 
