@@ -20,7 +20,7 @@ pipeline {
             when {
                 expression { 
                     return params.BRNACH == 'main' && 
-                    return params.BRNACH != 'test'    
+                    return params.BRNACH != 'main'    
                 }
             }
 
