@@ -3,7 +3,7 @@ pipeline {
     
     stages {
         // All the required stages 
-        ............
+        
     }
     
     post {
