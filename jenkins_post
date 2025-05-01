@@ -2,13 +2,13 @@ pipeline {
     agent any
     
     stages {
-        // All the required stages 
-        stage('Example') {
+            // All the required stages 
+            stage('Example') {
             steps {
                 echo 'hallo world'
             }
+        }   
     }
-    
     post {
         always {
             // Actions to be performed always (whether the pipeline succeeds or fails)
