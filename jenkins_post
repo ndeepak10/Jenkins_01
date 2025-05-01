@@ -3,7 +3,10 @@ pipeline {
     
     stages {
         // All the required stages 
-        
+        stage('Example') {
+            steps {
+                echo 'hallo world'
+            }
     }
     
     post {
