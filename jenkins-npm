@@ -2,11 +2,11 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'Node 18'  // Match the name defined in Global Tool Configuration
+        nodejs 'Node 24'  // Match the name defined in Global Tool Configuration
     }
 
     environment {
-        PATH = "${tool 'Node 18'}/bin:${env.PATH}"  // Make npm and node available
+        PATH = "${tool 'Node 24'}/bin:${env.PATH}"  // Make npm and node available
     }
 
     stages {
