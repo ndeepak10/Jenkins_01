@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven 3.9' // Must match the name defined in "Global Tool Configuration"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/ndeepak10/Jenkins_01.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Build succeeded!'
+        }
+        failure {
+            echo 'Build failed.'
+        }
+    }
+}
