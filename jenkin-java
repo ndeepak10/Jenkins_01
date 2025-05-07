@@ -1,13 +1,23 @@
 pipeline {
     agent any
+
     tools {
-        java 'Java21' 
+        jdk 'JDK 21'  // This must match the name you configured in Jenkins
+        
     }
+
+    environment {
+        JAVA_HOME = "${tool 'JDK 21'}"
+        PATH = "${JAVA_HOME}/bin:${env.PATH}"
+    }
+
     stages {
-        stage('java21') {
+        stage('Verify Java Version') {
             steps {
-                sh 'java --version'
+                sh 'java -version'
             }
         }
+
+        
     }
 }
