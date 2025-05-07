@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/ndeepak10/Jenkins_01.git'
+                git 'https://github.com/ndeepak10/maven_calclator_project.git'
             }
         }
 
